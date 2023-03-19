@@ -1,5 +1,5 @@
-#include "circular_buffer.h"
 #include <string.h>
+#include "circular_buffer.h"
 
 circular_buf_status_t circular_buffer_init(circular_buffer_t *buf)
 {
@@ -31,7 +31,7 @@ circular_buf_status_t circular_buffer_write(circular_buf_data_t *newData, circul
     buf->len++;
     buf->write_ptr++;
 
-    if(buf->write_ptr >= CIRCULAR_BUF_SIZE - 1)
+    if(buf->write_ptr >= CIRCULAR_BUF_SIZE)
     {
        buf->write_ptr = 0;
     }
@@ -56,7 +56,7 @@ circular_buf_status_t circular_buffer_read(circular_buf_data_t *data, circular_b
     buf->len--;
     buf->read_ptr++;
 
-    if(buf->read_ptr >= CIRCULAR_BUF_SIZE - 1)
+    if(buf->read_ptr >= CIRCULAR_BUF_SIZE)
     {
         buf->read_ptr = 0;
     }
