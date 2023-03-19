@@ -11,6 +11,7 @@ circular_buf_status_t circular_buffer_init(circular_buffer_t *buf)
     buf->len = 0;
 
     buf->read_ptr = 0;
+    
     buf->write_ptr = 0;
 
     memset(buf->data, 0, CIRCULAR_BUF_SIZE);
