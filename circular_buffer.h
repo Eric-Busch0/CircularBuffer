@@ -3,18 +3,18 @@
 
 #include <stddef.h>
 
-
 typedef int circular_buf_data_t;
 
 #define CIRCULAR_BUF_SIZE 256
 
+typedef enum
+{
+    CIRCULAR_BUFFER_SUCCESS,
+    CIRCULAR_BUFFER_FAIL,
+    CIRCULAR_BUFFER_EMPTY
+} circular_buf_status_t;
 
-typedef enum{
-CIRCULAR_BUFFER_SUCCESS,
-CIRCULAR_BUFFER_FAIL,
-CIRCULAR_BUFFER_EMPTY
-}circular_buf_status_t;
-typedef struct 
+typedef struct
 {
     /* data */
     circular_buf_data_t data[CIRCULAR_BUF_SIZE];
@@ -22,7 +22,7 @@ typedef struct
     size_t write_ptr;
     size_t len;
 
-}circular_buffer_t;
+} circular_buffer_t;
 
 circular_buf_status_t circular_buffer_init(circular_buffer_t *buf);
 circular_buf_status_t circular_buffer_write(circular_buf_data_t *newData, circular_buffer_t *buf);
