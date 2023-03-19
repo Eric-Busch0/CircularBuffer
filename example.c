@@ -27,7 +27,7 @@ int main()
         status = circular_buffer_read(&read[count], &buf);
         if(status == CIRCULAR_BUFFER_SUCCESS)
         {
-            printf("Data [%lu]: %d\n",count, read[count]);
+            printf("Data [%lu]: %d\n",count + 1, read[count]);
             count++;
         }
         else
@@ -64,7 +64,7 @@ int main()
         status = circular_buffer_read(&read[count], &buf);
         if(status == CIRCULAR_BUFFER_SUCCESS)
         {
-            printf("Data [%lu]: %d\n",count, read[count]);
+            printf("Data [%lu]: %d\n",count + 1, read[count]);
             count++;
         }
         else
