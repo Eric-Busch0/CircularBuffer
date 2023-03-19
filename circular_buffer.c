@@ -11,7 +11,7 @@ circular_buf_status_t circular_buffer_init(circular_buffer_t *buf)
     buf->len = 0;
 
     buf->read_ptr = 0;
-    
+
     buf->write_ptr = 0;
 
     memset(buf->data, 0, CIRCULAR_BUF_SIZE);
@@ -35,9 +35,6 @@ circular_buf_status_t circular_buffer_write(circular_buf_data_t *newData, circul
     {
        buf->write_ptr = 0;
     }
-
-
-
 
     return CIRCULAR_BUFFER_SUCCESS;
 }
@@ -63,7 +60,6 @@ circular_buf_status_t circular_buffer_read(circular_buf_data_t *data, circular_b
     {
         buf->read_ptr = 0;
     }
-
 
     return CIRCULAR_BUFFER_SUCCESS;
 }
