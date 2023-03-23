@@ -11,40 +11,37 @@ int main()
     const size_t bufSize = sizeof(data) / sizeof(data[0]);
 
     const size_t EXAMPLE_1_SIZE = CIRCULAR_BUF_SIZE / 2;
-    
+
     circular_buffer_init(&buf, data, bufSize);
 
     // Partiallu Fill Circular Buffer
-    for(int i = 0; i < EXAMPLE_1_SIZE; i++)
+    for (int i = 0; i < EXAMPLE_1_SIZE; i++)
     {
         circular_buffer_write(&i, &buf);
     }
 
-
     size_t count = 0;
     circular_buf_status_t status = CIRCULAR_BUFFER_SUCCESS;
 
-    while(status == CIRCULAR_BUFFER_SUCCESS)
+    while (status == CIRCULAR_BUFFER_SUCCESS)
     {
         status = circular_buffer_read(&read[count], &buf);
-        if(status == CIRCULAR_BUFFER_SUCCESS)
+        if (status == CIRCULAR_BUFFER_SUCCESS)
         {
-            printf("Data [%lu]: %d\n",count + 1, read[count]);
+            printf("Data [%lu]: %d\n", count + 1, read[count]);
             count++;
         }
         else
         {
             printf("Buffer Empty!\n");
         }
-        
     }
-    
+
     printf("Total Count %lu\n", count);
     circular_buffer_init(&buf, data, bufSize);
     memset(read, 0, sizeof(read));
 
-
-    //Overfill Buffer
+    // Overfill Buffer
 
     const int EXAMPLE_2_SIZE = CIRCULAR_BUF_SIZE * 3 / 2;
 
@@ -53,28 +50,26 @@ int main()
     printf("Overfiling buffer to size %d \n", EXAMPLE_2_SIZE);
     printf("Data At beginning will be overwritten!\n");
 
-    for(int i = 0; i < EXAMPLE_2_SIZE; i++)
+    for (int i = 0; i < EXAMPLE_2_SIZE; i++)
     {
         circular_buffer_write(&i, &buf);
     }
-    
 
     count = 0;
     status = CIRCULAR_BUFFER_SUCCESS;
 
-    while(status == CIRCULAR_BUFFER_SUCCESS)
+    while (status == CIRCULAR_BUFFER_SUCCESS)
     {
         status = circular_buffer_read(&read[count], &buf);
-        if(status == CIRCULAR_BUFFER_SUCCESS)
+        if (status == CIRCULAR_BUFFER_SUCCESS)
         {
-            printf("Data [%lu]: %d\n",count + 1, read[count]);
+            printf("Data [%lu]: %d\n", count + 1, read[count]);
             count++;
         }
         else
         {
             printf("Buffer Empty!\n");
         }
-        
     }
 
     printf("Total Count %lu\n", count);
