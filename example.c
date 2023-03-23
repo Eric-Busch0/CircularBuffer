@@ -48,7 +48,8 @@ int main()
 
     const int EXAMPLE_2_SIZE = CIRCULAR_BUF_SIZE * 3 / 2;
 
-    printf("\n--------\n\nEXAMPLE 2\n");
+    printf("\n------------\n");
+    printf("\nEXAMPLE 2\n");
     printf("Overfiling buffer to size %d \n", EXAMPLE_2_SIZE);
     printf("Data At beginning will be overwritten!\n");
 
